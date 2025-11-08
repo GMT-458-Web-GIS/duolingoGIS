@@ -14,20 +14,34 @@ const Intro = () => {
   }, []);
 
   const handleClick = () => {
+    // Play intro sound when clicking to navigate
+    const playIntroSound = () => {
+      const audio = new Audio('/sfx/intro.mp3');
+      audio.volume = 0.5; // Set volume to 50%
+      audio.play().catch(error => {
+        console.log('Audio play failed:', error);
+      });
+    };
+
+    playIntroSound();
     navigate('/main');
   };
 
   return (
     <div className="intro-container" onClick={handleClick}>
       <div className="intro-content">
-        <h1 className="intro-title">
-          <span className={`duolingo-text ${showDuolingo ? 'fade-in' : ''}`}>
-            duolingo
-          </span>
-          <span className={`gis-text ${showGIS ? 'fade-in' : ''}`}>
-            GIS
-          </span>
-        </h1>
+        <div className="title-with-images">
+
+          <img src="/images/players/duo-race.svg" alt="Duo" className="duo-race-image" />
+          <h1 className="intro-title">
+            <span className={`duolingo-text ${showDuolingo ? 'fade-in' : ''}`}>
+              duolingo
+            </span>
+            <span className={`gis-text ${showGIS ? 'fade-in' : ''}`}>
+              GIS
+            </span>
+          </h1>
+        </div>
       </div>
     </div>
   );

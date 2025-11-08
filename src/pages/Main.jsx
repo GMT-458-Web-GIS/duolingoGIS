@@ -346,6 +346,13 @@ const Main = () => {
                 </div>
               ) : (
                 <div className="game-ui">
+                      {/* Geri Butonu */}
+                      <button className="back-button" onClick={handleHomeClick} title="Geri Dön">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                          <path d="M19 12H5M12 19l-7-7 7-7"/>
+                        </svg>
+                      </button>
+                      
                       {/* Soru Kısımı */}
                       <div className="question-section">
                         <img src="/images/duo/Image & Audio.png" alt="Question" className="question-image" />
@@ -409,6 +416,10 @@ const Main = () => {
                 <p className="developer-username">@kaanklcrsln</p>
                 <p className="developer-title">Geomatics Engineer</p>
               </div>
+              {/* Duo Character */}
+              <div className="duo-character">
+                <img src="/images/duo/duo-lover.svg" alt="Duo" className="duo-image" />
+              </div>
             </div>
 
             {/* Welcome Content */}
@@ -418,12 +429,10 @@ const Main = () => {
                 You can play flag quiz games for each continent by selecting sections and choosing levels. 
                 Test your geography knowledge and learn about countries and their flags!
               </p>
+
             </div>
 
-            {/* Duo Character */}
-            <div className="duo-character">
-              <img src="/images/duo/duo.png" alt="Duo" className="duo-image" />
-            </div>
+
           </div>
         </div>
       )}

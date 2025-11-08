@@ -73,26 +73,21 @@
   font-weight: 700;
   margin: 0;
   cursor: pointer;
-  transition: all 0.3s ease;
+  /* No transition/animation per user request */
   font-family: 'DIN-Next-Rounded', sans-serif;
   letter-spacing: 2px;
 }
 
-.app-title:hover {
-  transform: scale(1.05);
-}
-
 .app-title .duolingo-text {
   color: transparent !important;
+  /* static color via text-shadow, no animation */
   text-shadow: 0 0 0 #58cc02;
-  transition: all 0.3s ease;
   font-family: 'Duolingo-Feather-Bold', 'DIN-Next-Rounded', sans-serif;
 }
 
 .app-title .gis-text {
   color: transparent !important;
   text-shadow: 0 0 0 #ff9600;
-  transition: all 0.3s ease;
 }
 
 .main-page.dark-mode .app-title .duolingo-text {
@@ -101,14 +96,6 @@
 
 .main-page.dark-mode .app-title .gis-text {
   text-shadow: 0 0 0 #ff9600;
-}
-
-.app-title:hover .duolingo-text {
-  text-shadow: 0 2px 8px rgba(255, 255, 255, 0.6);
-}
-
-.app-title:hover .gis-text {
-  text-shadow: 0 2px 8px rgba(255, 150, 0, 0.6);
 }
 
 .stats-container {
@@ -1069,6 +1056,7 @@
   height: 100%;
   gap: 20px;
   padding-top: 40px;
+  position: relative;
 }
 
 .question-section {
@@ -1120,6 +1108,51 @@
   height: 100%;
   object-fit: cover;
   display: block;
+}
+
+.back-button {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 2px solid #e0e0e0;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 100;
+  color: #333;
+}
+
+.back-button:hover {
+  background: rgba(255, 255, 255, 1);
+  border-color: #89e219;
+  color: #89e219;
+  transform: scale(1.1);
+  box-shadow: 0 2px 8px rgba(137, 226, 25, 0.3);
+}
+
+.main-page.dark-mode .back-button {
+  background: rgba(45, 45, 45, 0.9);
+  border-color: #555;
+  color: #e0e0e0;
+}
+
+.main-page.dark-mode .back-button:hover {
+  background: rgba(45, 45, 45, 1);
+  border-color: #89e219;
+  color: #89e219;
+  box-shadow: 0 2px 8px rgba(137, 226, 25, 0.3);
+}
+
+.back-button svg {
+  width: 20px;
+  height: 20px;
+  stroke: currentColor;
 }
 
 .check-button {
@@ -1259,6 +1292,7 @@
 .developer-section {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 20px;
   margin-bottom: 30px;
   padding: 20px;
@@ -1346,13 +1380,14 @@
 /* Duo Character */
 .duo-character {
   display: flex;
+  align-items: center;
   justify-content: flex-end;
-  margin-top: 30px;
+  margin-top: 0;
 }
 
 .duo-image {
-  width: 140px;
-  height: 120px;
+  width: 90px;
+  height: auto;
   object-fit: contain;
   animation: floatAnimation 3s ease-in-out infinite;
 }
@@ -1362,7 +1397,7 @@
     transform: translateY(0px);
   }
   50% {
-    transform: translateY(-10px);
+    transform: translateX(-10px);
   }
 }
 
